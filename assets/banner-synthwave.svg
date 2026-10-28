@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewBox="0 0 1000 300">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#05010f"/>
+      <stop offset="0.55" stop-color="#170331"/>
+      <stop offset="1" stop-color="#3a0a5c"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd23f"/>
+      <stop offset="0.5" stop-color="#ff4fa3"/>
+      <stop offset="1" stop-color="#c026d3"/>
+    </linearGradient>
+    <linearGradient id="floorFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#05010f" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#05010f" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="sunMask">
+      <rect x="0" y="0" width="1000" height="300" fill="#fff"/>
+      <rect x="0" y="158" width="1000" height="3" fill="#000"/>
+      <rect x="0" y="170" width="1000" height="4" fill="#000"/>
+      <rect x="0" y="182" width="1000" height="5" fill="#000"/>
+      <rect x="0" y="193" width="1000" height="6" fill="#000"/>
+    </mask>
+    <clipPath id="aboveHorizon"><rect x="0" y="0" width="1000" height="205"/></clipPath>
+    <clipPath id="belowHorizon"><rect x="0" y="205" width="1000" height="95"/></clipPath>
+    <filter id="glow" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sunGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#000" fill-opacity="0.28"/>
+    </pattern>
+  </defs>
+  <style>
+    .t { font: 900 66px 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; letter-spacing: 5px; }
+    .sub { font: 600 17px 'Courier New', Consolas, monospace; letter-spacing: 3px; fill: #00f0ff; }
+    .c { fill: #00f0ff; opacity: .85; animation: gc 4s infinite steps(1); }
+    .m { fill: #ff2bd6; opacity: .85; animation: gm 4s infinite steps(1); }
+    .w { fill: #fff6ff; animation: gw 4s infinite steps(1); }
+    @keyframes gc { 0%{transform:translate(-3px,0)} 46%{transform:translate(-9px,2px)} 48%{transform:translate(6px,-2px)} 50%{transform:translate(-3px,0)} 88%{transform:translate(-12px,0)} 90%{transform:translate(-3px,0)} }
+    @keyframes gm { 0%{transform:translate(3px,0)} 46%{transform:translate(9px,-2px)} 48%{transform:translate(-6px,2px)} 50%{transform:translate(3px,0)} 88%{transform:translate(12px,1px)} 90%{transform:translate(3px,0)} }
+    @keyframes gw { 0%{transform:translate(0,0)} 47%{transform:translate(2px,0)} 49%{transform:translate(0,0)} 89%{transform:translate(-3px,0)} 90%{transform:translate(0,0)} }
+    .star { fill: #fff; animation: tw 3s ease-in-out infinite; }
+    @keyframes tw { 0%,100%{opacity:.15} 50%{opacity:.9} }
+    .v line { stroke: #ff2bd6; stroke-width: 1.3; stroke-opacity: .7; }
+  </style>
+
+  <rect width="1000" height="300" fill="url(#sky)"/>
+
+  <!-- stars -->
+  <g>
+    <circle class="star" cx="80"  cy="40"  r="1.2"/>
+    <circle class="star" cx="190" cy="22"  r="1"   style="animation-delay:.6s"/>
+    <circle class="star" cx="320" cy="60"  r="1.4" style="animation-delay:1.2s"/>
+    <circle class="star" cx="455" cy="30"  r="1"   style="animation-delay:.3s"/>
+    <circle class="star" cx="590" cy="18"  r="1.3" style="animation-delay:1.8s"/>
+    <circle class="star" cx="640" cy="80"  r="1"   style="animation-delay:.9s"/>
+    <circle class="star" cx="930" cy="35"  r="1.4" style="animation-delay:2.1s"/>
+    <circle class="star" cx="970" cy="110" r="1"   style="animation-delay:1.5s"/>
+    <circle class="star" cx="40"  cy="150" r="1"   style="animation-delay:2.4s"/>
+    <circle class="star" cx="520" cy="120" r="1.1" style="animation-delay:.2s"/>
+  </g>
+
+  <!-- synthwave sun -->
+  <g clip-path="url(#aboveHorizon)">
+    <circle cx="805" cy="170" r="92" fill="#ff2bd6" opacity=".45" filter="url(#sunGlow)"/>
+    <circle cx="805" cy="170" r="88" fill="url(#sun)" mask="url(#sunMask)"/>
+  </g>
+
+  <!-- city silhouette -->
+  <path fill="#0b0220" d="M560 205 V182 h18 v-14 h12 v14 h10 V160 h22 v45 h8 v-30 h16 v-22 h10 v52 h14 V170 h20 v35 h12 v-18 h16 v18 h40 v-26 h14 v-16 h10 v42 h22 V175 h18 v30 h30 v-22 h16 v22 h40 v-38 h14 v38 h30 V205 z"/>
+
+  <!-- horizon line -->
+  <line x1="0" y1="205" x2="1000" y2="205" stroke="#ff2bd6" stroke-width="2" filter="url(#glow)"/>
+
+  <!-- perspective floor -->
+  <g clip-path="url(#belowHorizon)">
+    <rect x="0" y="205" width="1000" height="95" fill="#0d0221"/>
+    <g class="v">
+      <line x1="500" y1="205" x2="-700" y2="300"/>
+      <line x1="500" y1="205" x2="-400" y2="300"/>
+      <line x1="500" y1="205" x2="-100" y2="300"/>
+      <line x1="500" y1="205" x2="150"  y2="300"/>
+      <line x1="500" y1="205" x2="350"  y2="300"/>
+      <line x1="500" y1="205" x2="500"  y2="300"/>
+      <line x1="500" y1="205" x2="650"  y2="300"/>
+      <line x1="500" y1="205" x2="850"  y2="300"/>
+      <line x1="500" y1="205" x2="1100" y2="300"/>
+      <line x1="500" y1="205" x2="1400" y2="300"/>
+      <line x1="500" y1="205" x2="1700" y2="300"/>
+    </g>
+    <g stroke="#ff2bd6" stroke-width="1.3">
+      <line x1="0" x2="1000" y1="205" y2="205"><animate attributeName="y1" values="205;300" dur="2.4s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 1 1"/><animate attributeName="y2" values="205;300" dur="2.4s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 1 1"/></line>
+      <line x1="0" x2="1000" y1="205" y2="205"><animate attributeName="y1" values="205;300" dur="2.4s" begin="-0.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 1 1"/><animate attributeName="y2" values="205;300" dur="2.4s" begin="-0.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 1 1"/></line>
+      <line x1="0" x2="1000" y1="205" y2="205"><animate attributeName="y1" values="205;300" dur="2.4s" begin="-1.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 1 1"/><animate attributeName="y2" values="205;300" dur="2.4s" begin="-1.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 1 1"/></line>
+      <line x1="0" x2="1000" y1="205" y2="205"><animate attributeName="y1" values="205;300" dur="2.4s" begin="-1.8s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 1 1"/><animate attributeName="y2" values="205;300" dur="2.4s" begin="-1.8s" repeatCount="indefinite" calcMode="spline" keySplines="0.55 0 1 1"/></line>
+    </g>
+    <rect x="0" y="205" width="1000" height="40" fill="url(#floorFade)"/>
+  </g>
+
+  <!-- title with glitch -->
+  <g filter="url(#glow)">
+    <text class="t c" x="60" y="118">HUGO ROSALES</text>
+    <text class="t m" x="60" y="118">HUGO ROSALES</text>
+    <text class="t w" x="60" y="118">HUGO ROSALES</text>
+  </g>
+  <text class="sub" x="64" y="160">AI &amp; AUTOMATION // DATA &amp; BI // IT PROJECTS</text>
+  <rect x="64" y="172" width="120" height="3" fill="#ff2bd6">
+    <animate attributeName="width" values="0;420;420;0" keyTimes="0;0.4;0.85;1" dur="5s" repeatCount="indefinite"/>
+  </rect>
+
+  <rect width="1000" height="300" fill="url(#scan)"/>
+</svg>
