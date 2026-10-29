@@ -51,6 +51,15 @@ Computer Engineer (UAB, 2026) working where **AI, automation and data** meet the
 
 <table>
   <tr>
+    <td colspan="2" valign="top">
+      <h3>▸ Capri Desktop — voice-driven desktop AI assistant</h3>
+      <p>Local AI companion for Windows that listens, talks and acts: Whisper speech recognition on the GPU, natural voice (XTTS v2) with a holographic effect,
+      on-the-spot commands (web, YouTube, clicking what's on screen via UI Automation, tabs, typing, shutdown), commands you teach it by voice and memories it learns by itself. Runs on local LLMs (Ollama).</p>
+      <p><code>Electron · Node.js · Python · Whisper · XTTS · Ollama · UI Automation</code></p>
+      <p><a href="https://github.com/HugoRosaless/Capri-AI-voice-desktop">View repo →</a></p>
+    </td>
+  </tr>
+  <tr>
     <td width="50%" valign="top">
       <h3>▸ Neural Image Compression</h3>
       <p>Lightweight neural networks for image compression (Bachelor's thesis, UAB).</p>
